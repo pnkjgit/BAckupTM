@@ -1,18 +1,19 @@
+// src/App.tsx
 import React from 'react';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import Login from './components/Login/Login';
+import Signup from './components/Signup/Signup';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-     
-        <p>
-          This is initital code setup
-        </p>
-       
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/" element={<Navigate to="/login" replace />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
